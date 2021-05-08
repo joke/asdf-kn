@@ -3,6 +3,8 @@ name: main
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '48 10 * * 6'
 
 jobs:
   test:
