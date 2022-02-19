@@ -13,4 +13,3 @@ asdf plugin-add kn https://github.com/joke/asdf-kn.git
 ## Use
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for instructions on how to install & manage versions of Knative Client
-
