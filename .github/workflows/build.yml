@@ -1,0 +1,27 @@
+name: build
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+
+jobs:
+  plugin_test:
+    name: asdf plugin test
+    strategy:
+      matrix:
+        os:
+        - ubuntu-latest
+        - macos-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: test latest version
+      uses: asdf-vm/actions/plugin-test@v1
+      with:
+        command: kn version
+    - name: test versions <= 1.0.0
+      uses: asdf-vm/actions/plugin-test@v1
+      with:
+        version: 0.26.0
+        command: kn version
