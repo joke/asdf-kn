@@ -3,6 +3,7 @@
 set -euo pipefail
 
 GH_REPO="https://github.com/knative/client"
+GH_REPO_SANDBOX="https://github.com/knative-sandbox"
 TOOL_NAME="kn"
 TOOL_TEST="kn"
 
@@ -62,13 +63,27 @@ download_release() {
   local version version_prefix filename variant url
   version="$1"
   version_prefix="$(version_prefix "$version")"
-  filename="$2"
+  filename="$2/kn"
   variant="$(detect_system)-$(detect_architecture)"
 
   url="$GH_REPO/releases/download/${version_prefix}${version}/kn-${variant}"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
+}
+
+download_plugin() {
+  local plugin version version_prefix variant filename url
+  plugin="$1"
+  version="$2"
+  version_prefix="$(version_prefix "$version")"
+  variant="$(detect_system)-$(detect_architecture)"
+  filename="$3/kn-${plugin}"
+
+  url="$GH_REPO_SANDBOX/kn-plugin-${plugin}/releases/download/${version_prefix}${version}/kn-${plugin}-${variant}"
+
+  echo "* Trying to download $plugin release $version."
+  curl "${curl_opts[@]}" -o "$filename" -C - "$url" || echo "Could not download plugin '$plugin' from: $url"
 }
 
 install_version() {
@@ -81,8 +96,8 @@ install_version() {
   fi
 
   (
-    mkdir -p "$install_path/bin"
-    cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path/bin"
+    mkdir -p "$install_path"
+    cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"

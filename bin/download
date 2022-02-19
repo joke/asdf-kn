@@ -8,10 +8,19 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck source=../lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 
-mkdir -p "$ASDF_DOWNLOAD_PATH"
+BIN_DIR="$ASDF_DOWNLOAD_PATH/bin"
+PLUGIN_DIR="$ASDF_DOWNLOAD_PATH/plugins"
+mkdir -p "$BIN_DIR" "$PLUGIN_DIR"
 
-release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME"
+download_release "$ASDF_INSTALL_VERSION" "$BIN_DIR"
 
-download_release "$ASDF_INSTALL_VERSION" "$release_file"
+echo 'Attempting to download plugins. Plugins might not be available for certain releases.'
+echo 'Installation will continue regardless the reason.'
+download_plugin admin "$ASDF_INSTALL_VERSION" "$PLUGIN_DIR"
+download_plugin quickstart "$ASDF_INSTALL_VERSION" "$PLUGIN_DIR"
+download_plugin source-kafka "$ASDF_INSTALL_VERSION" "$PLUGIN_DIR"
+download_plugin source-kamelet "$ASDF_INSTALL_VERSION" "$PLUGIN_DIR"
+download_plugin event "$ASDF_INSTALL_VERSION" "$PLUGIN_DIR"
 
-chmod +x "$release_file"
+chmod +x "$BIN_DIR/"*
+chmod +x "$PLUGIN_DIR/"* || true
