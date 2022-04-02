@@ -1,10 +1,10 @@
 name: build
 
 on:
+  pull_request:
   push:
     branches:
     - master
-  pull_request:
 
 jobs:
   plugin_test:
@@ -23,5 +23,5 @@ jobs:
     - name: test versions <= 1.0.0
       uses: asdf-vm/actions/plugin-test@v1
       with:
-        version: 0.26.0
+        version: latest
         command: kn version

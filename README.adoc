@@ -1,0 +1,7 @@
+= Template
+
+image:https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white[pre-commit, link=https://github.com/pre-commit/pre-commit]
+
+== Contributing
+
+If you're looking to contribute, you can find additional information in link:CONTRIBUTING.adoc[here].
