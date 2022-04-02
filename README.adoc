@@ -1,6 +1,34 @@
-= Template
+= asdf-kn
 
-image:https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white[pre-commit, link=https://github.com/pre-commit/pre-commit]
+https://github.com/joke/asdf-kn/actions[image:https://github.com/joke/asdf-kn/workflows/main/badge.svg[Build Status]]
+
+https://github.com/knative/client[Knative Client] plugin for
+https://github.com/asdf-vm/asdf[asdf] version manager.
+
+== Install
+
+....
+asdf plugin add kn
+....
+
+If you prefer to add plugin directly
+
+....
+asdf plugin add kn https://github.com/joke/asdf-kn.git
+....
+
+
+== Use
+
+Check https://github.com/asdf-vm/asdf[asdf] readme for instructions on
+how to install & manage versions of Knative Client
+
+== Plugins
+
+`kn` itself supports extension by plugin.
+
+This plugin will try download a set of plugins, which they are released
+alongside the specified version.
 
 == Contributing
 
