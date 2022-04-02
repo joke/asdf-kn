@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/joke/asdf-kn/compare/v1.1.0...v2.0.0) (2022-04-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Initial commit
+
+### Features
+
+* Initial commit ([6b42fc1](https://github.com/joke/asdf-kn/commit/6b42fc1771a69c23c59ad96e21d98660a70746e3))
+
 ## [1.1.0](https://github.com/joke/asdf-kn/compare/v1.0.0...v1.1.0) (2022-02-19)
 
 
