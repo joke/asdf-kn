@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0 (2022-04-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Initial commit
+
+### Features
+
+* Initial commit ([6b42fc1](https://github.com/joke/template/commit/6b42fc1771a69c23c59ad96e21d98660a70746e3))
+
 ### [1.0.6](https://github.com/joke/template/compare/v1.0.5...v1.0.6) (2022-03-20)
 
 
