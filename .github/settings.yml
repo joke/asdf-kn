@@ -28,8 +28,6 @@ branches:
     required_status_checks:
       strict: true
       checks:
-      - context: pre-commit
-        app_id: 15368
       - context: asdf plugin test (ubuntu-latest)
         app_id: 15368
       - context: asdf plugin test (macos-latest)
